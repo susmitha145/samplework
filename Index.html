@@ -8,3 +8,16 @@
     <p>This is a sample HTML file for testing jenkins build.</p>
   </body>
 </html>
+ post {
+        success {
+            mail to: 'mksathish64@gmail.com',
+                 subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Build Succeeded\nURL: ${env.BUILD_URL}"
+        }
+        failure {
+            mail to: 'mksathish64@@gmail.com',
+                 subject: "❌ FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Build Failed\nURL: ${env.BUILD_URL}"
+        }
+    }
+}
